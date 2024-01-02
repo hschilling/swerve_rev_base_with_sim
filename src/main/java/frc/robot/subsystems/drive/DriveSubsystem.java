@@ -48,6 +48,9 @@ public class DriveSubsystem extends SubsystemBase {
       DriveConstants.kRearRightTurningCanId,
       DriveConstants.kBackRightChassisAngularOffset);
 
+      // private final FieldObject2d[] module2ds;
+
+
   // The gyro sensor
   // private final AHRS ahrs = new AHRS(SPI.Port.kMXP, (byte) 66);
 
@@ -76,7 +79,14 @@ public class DriveSubsystem extends SubsystemBase {
 
   /** Creates a new DriveSubsystem. */
   public DriveSubsystem() {
-    
+    // module2ds = new FieldObject2d[modules.length];
+
+  //   public void initFieldObjects(Field2d field) {
+  //     for (int i = 0; i < modules.length; i++) {
+  //         module2ds[i] = field.getObject(modules[i].getID()+"-2d");
+  //     }
+  // }
+
   }
 
   @Override
@@ -113,6 +123,19 @@ public class DriveSubsystem extends SubsystemBase {
     SmartDashboard.putNumber("Left Front Turn Speed", m_frontLeft.getTurnAngle());
     SmartDashboard.putNumber("Right Rear Turn Speed", m_rearRight.getTurnAngle());
     SmartDashboard.putNumber("Left Rear Turn Speed", m_rearLeft.getTurnAngle());
+
+    // Odometry odometry = Odometry.getInstance();
+    // Pose2d pose = odometry.getPose();
+    // Rotation2d angle = odometry.getRotation();
+
+    // for (int i = 0; i < modules.length; ++i) {
+    //     module2ds[i].setPose(new Pose2d(
+    //         pose.getTranslation().plus(modules[i].getOffset().rotateBy(angle)),
+    //         modules[i].getState().angle.plus(angle)
+    //     ));
+    // }
+
+
   }
 
   /**

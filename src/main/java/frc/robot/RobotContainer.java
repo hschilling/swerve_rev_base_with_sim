@@ -39,6 +39,8 @@ public class RobotContainer {
 //   private static Gyro m_gyro = new Gyro(); 
   public boolean fieldOrientedDrive = false;
  
+//   public final Odometry odometry = Odometry.getInstance();
+
 
   // The driver's controller
   XboxController m_driverController = new XboxController(OIConstants.kDriverControllerPort);
