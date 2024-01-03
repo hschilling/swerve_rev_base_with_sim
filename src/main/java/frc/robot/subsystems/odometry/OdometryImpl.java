@@ -25,18 +25,13 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.FieldObject2d;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.RobotContainer;
 
 import java.util.List;
 
 
 public class OdometryImpl extends Odometry {
 
-    public static final SmartBoolean DISABLE_APRIL_TAGS = new SmartBoolean("Odometry/Disable April Tags", false);
-
-    private interface VisionStdDevs {
-        Vector<N3> AUTO = VecBuilder.fill(0.3, 0.3, Math.toRadians(30));
-    Vector<N3> TELEOP = VecBuilder.fill(0.3 - Units.inchesToMeters(5.0), 0.3 - Units.inchesToMeters(5.0), Units.degreesToRadians(30));
-    }
 
     private final SwerveDrivePoseEstimator poseEstimator;
     private final SwerveDriveOdometry odometry;
@@ -45,8 +40,12 @@ public class OdometryImpl extends Odometry {
     private final FieldObject2d odometryPose2d;
     private final FieldObject2d poseEstimatorPose2d;
 
+    Vector<N3> visionStdDevs = VecBuilder.fill(0.05, .05, Units.degreesToRadians(10));
+
+
     protected OdometryImpl() {
-        var swerve = SwerveDrive.getInstance();
+        var swerve = RobotContainer.m_robotDrive;
+        //    var swerve = SwerveDrive.getInstance();
         var startingPose = new Pose2d(0, 0, Rotation2d.fromDegrees(0));
 
         poseEstimator =

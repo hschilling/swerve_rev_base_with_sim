@@ -35,7 +35,7 @@ import frc.robot.subsystems.drive.DriveSubsystem;
  */
 public class RobotContainer {
   // The robot's subsystems
-  private final DriveSubsystem m_robotDrive = new DriveSubsystem();
+  public final DriveSubsystem m_robotDrive = new DriveSubsystem();
 //   private static Gyro m_gyro = new Gyro(); 
   public boolean fieldOrientedDrive = false;
  

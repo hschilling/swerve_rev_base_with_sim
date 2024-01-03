@@ -18,7 +18,7 @@ import com.revrobotics.RelativeEncoder;
 
 import frc.robot.Constants.ModuleConstants;
 
-public class MAXSwerveModule {
+public class MAXSwerveModule implements IOSwerveModule{
   public final CANSparkMax m_drivingSparkMax;
   public final CANSparkMax m_turningSparkMax;
 
