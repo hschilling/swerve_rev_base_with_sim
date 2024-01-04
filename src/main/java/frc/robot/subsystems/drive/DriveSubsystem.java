@@ -80,16 +80,17 @@ public class DriveSubsystem extends SubsystemBase {
 
     } else {
 
-      // Positive x values represent moving toward the front of the robot whereas positive y values 
-      //   represent moving toward the left of the robot.
+      // Positive x values represent moving toward the front of the robot whereas
+      // positive y values
+      // represent moving toward the left of the robot.
       m_frontLeft = new SimSwerveModule("Front Left",
           new Translation2d(DriveConstants.kWheelBase / 2, DriveConstants.kTrackWidth / 2));
       m_frontRight = new SimSwerveModule("Front Left",
-          new Translation2d(DriveConstants.kWheelBase / 2, - DriveConstants.kTrackWidth / 2));
+          new Translation2d(DriveConstants.kWheelBase / 2, -DriveConstants.kTrackWidth / 2));
       m_rearRight = new SimSwerveModule("Front Left",
-          new Translation2d(- DriveConstants.kWheelBase / 2, - DriveConstants.kTrackWidth / 2));
+          new Translation2d(-DriveConstants.kWheelBase / 2, -DriveConstants.kTrackWidth / 2));
       m_rearLeft = new SimSwerveModule("Front Left",
-          new Translation2d(- DriveConstants.kWheelBase / 2, DriveConstants.kTrackWidth / 2));
+          new Translation2d(-DriveConstants.kWheelBase / 2, DriveConstants.kTrackWidth / 2));
 
     }
 
@@ -325,10 +326,10 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
   public void setMotorSpeeds(double speed) {
-    m_frontLeft.m_drivingSparkMax.set(speed);
-    m_frontRight.m_drivingSparkMax.set(speed);
-    m_rearLeft.m_drivingSparkMax.set(speed);
-    m_rearRight.m_drivingSparkMax.set(speed);
+    m_frontLeft.setDriveSpeed(speed);
+    m_frontRight.setDriveSpeed(speed);
+    m_rearLeft.setDriveSpeed(speed);
+    m_rearRight.setDriveSpeed(speed);
   }
 
 }

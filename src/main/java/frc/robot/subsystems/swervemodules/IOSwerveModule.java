@@ -5,9 +5,16 @@
 
 package frc.robot.subsystems.swervemodules;
 
+import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
+import com.revrobotics.CANSparkMax;
 
 public interface IOSwerveModule {
+
+
+    // All fields in interface are public static final
+
+
     class SwerveModuleIOInputs {
         public double drivePositionMeters = 0.0;
         public double driveVelocityMetersPerSec = 0.0;
@@ -24,28 +31,32 @@ public interface IOSwerveModule {
         public double steerTempCelcius = 0.0;
     }
 
-    default void updateInputs(SwerveModuleIOInputs inputs) {}
+    public void updateInputs(SwerveModuleIOInputs inputs);
 
-    default void setDriveVoltage(double voltage) {}
+    public void setDriveVoltage(double voltage);
 
-    default void setSteerVoltage(double voltage) {}
-    
-    default void setModuleState(SwerveModuleState state, boolean isOpenLoop) {}
+    public void setSteerVoltage(double voltage);
 
-    default void stopMotors() {}
+    public void setModuleState(SwerveModuleState state, boolean isOpenLoop);
 
-    default void setDriveBrakeMode(boolean enable) {}
+    public void stopMotors();
 
-    default void setSteerBrakeMode(boolean enable) {}
+    public void setDriveBrakeMode(boolean enable);
 
-    // from MAXSwerveModule 
-    // default   public SwerveModuleState getState() {}
-    // public SwerveModulePosition getPosition() {
-        // public void setDesiredState(SwerveModuleState desiredState) {
-            // public void resetEncoders() {
-                // public double getDriveVolts() {
-                    // public double getDriveOutput() {
-                        // public double getDriveSpeed() {
-                            // public double getTurnAngle() {
+    public void setSteerBrakeMode(boolean enable);
+
+    public SwerveModulePosition getPosition() ;
+
+    // from MAXSwerveModule
+    public SwerveModuleState getState() ;
+    public void setDesiredState(SwerveModuleState desiredState) ;
+    public void resetEncoders() ;
+    public double getDriveVolts() ;
+    public double getDriveOutput() ;
+    public double getDriveSpeed() ;
+    public double getSteerSpeed() ;
+    public void setDriveSpeed(double speed) ;
+    public void setSteerSpeed(double speed) ;
+    public double getTurnAngle() ;
 
 }
